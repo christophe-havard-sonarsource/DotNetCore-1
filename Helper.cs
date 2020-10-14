@@ -26,8 +26,13 @@ public static class Helper {
                 return Environment.GetEnvironmentVariable("postgre_connection");
         }
         // I add another useless code line
-        public static void DoNothing(){
-            Environment.GetEnvironmentVariable("postgre_connection");
+        public static void DoNothing(string useless){
+             // do nothing
+        }
+        public int ComputeWithSomeRecursion(int num, int inc)
+        {
+        num = num * ComputeWithSomeRecursion(num, inc-1);
+        return num;
         }
 }
 }
