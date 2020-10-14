@@ -35,8 +35,6 @@ stages:
           $(workingDirectory)/*.sln       #build the whole solution
         arguments: --output $(System.DefaultWorkingDirectory)/publish_output --configuration Release
 
-      inputs:
-        pollingTimeoutSec: '300'
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
