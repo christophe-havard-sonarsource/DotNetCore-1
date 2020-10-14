@@ -27,6 +27,13 @@ stages:
       vmImage: $(vmImageName)
 
     steps:
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'SonarCloud'
+        organization: 'my-awesome-sonarcloud-org'
+        scannerMode: 'MSBuild'
+        projectKey: 'my-awesome-sonarcloud-org_My_DotnetCore_Project'
+        projectName: 'My_DotnetCore_Project'
     - task: DotNetCoreCLI@2
       displayName: Build
       inputs:
@@ -34,7 +41,10 @@ stages:
         projects: 
           $(workingDirectory)/*.sln       #build the whole solution
         arguments: --output $(System.DefaultWorkingDirectory)/publish_output --configuration Release
-
+    - task: SonarCloudAnalyze@1
+    - task: SonarCloudPublish@1
+      inputs:
+        pollingTimeoutSec: '300'
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
