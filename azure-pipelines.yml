@@ -1,0 +1,19 @@
+trigger:
+- master
+- feature/*
+
+steps:
+# Prepare Analysis Configuration task
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'SonarQube'
+    scannerMode: 'MSBuild'
+    projectKey: 'My-Github-Test-Orga_DotNetCore'
+
+# Run Code Analysis task
+- task: SonarQubeAnalyze@4
+
+# Publish Quality Gate Result task
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
