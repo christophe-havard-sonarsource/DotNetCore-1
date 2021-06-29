@@ -9,7 +9,10 @@ steps:
     SonarQube: 'SonarQube'
     scannerMode: 'MSBuild'
     projectKey: 'My-Github-Test-Orga_DotNetCore'
-
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    
 # Run Code Analysis task
 - task: SonarQubeAnalyze@4
 
