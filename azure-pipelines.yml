@@ -14,7 +14,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: $(build.artifactStagingDirectory)/**/*.csproj
+    projects: '/**/*.csproj'
 
 
 # Run Code Analysis task
