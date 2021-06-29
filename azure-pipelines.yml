@@ -10,18 +10,11 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'My-Github-Test-Orga_DotNetCore'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      echo $(workingDirectory)
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: |
-          $(workingDirectory)/**/*.csproj
+    projects: ./**/*.csproj
 
 
 # Run Code Analysis task
