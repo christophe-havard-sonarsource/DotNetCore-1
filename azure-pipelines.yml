@@ -12,7 +12,8 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    
+    projects: |
+          $(workingDirectory)/*.csproj
 # Run Code Analysis task
 - task: SonarQubeAnalyze@4
 
