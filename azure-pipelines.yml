@@ -13,7 +13,7 @@ steps:
   inputs:
     command: 'build'
     projects: |
-          $(workingDirectory)/DotNet/*.csproj
+          $(workingDirectory)/**/*.csproj
 # Run Code Analysis task
 - task: SonarQubeAnalyze@4
 
