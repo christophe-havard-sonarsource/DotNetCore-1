@@ -14,8 +14,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '/**/*.csproj'
-
+    projects: '$(build.artifactStagingDirectory)/**/*.csproj'
 
 # Run Code Analysis task
 - task: SonarQubeAnalyze@4
